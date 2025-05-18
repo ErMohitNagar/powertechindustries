@@ -1,16 +1,14 @@
-import './App.css'
-import Navbar from './Component/Navbar/navbar'
-import Home from './Component/HomePage/Home'
-import Footer from './Component/Footer/Footer'
-import AboutUs from './Component/AboutPage/AboutUs'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Services from './Component/Services/services'
-import ContactUs from './Component/Contact/ContactUs';
-
+import "./App.css";
+import Navbar from "./Component/Navbar/navbar";
+import Home from "./Component/HomePage/Home";
+import Footer from "./Component/Footer/Footer";
+import AboutUs from "./Component/AboutPage/AboutUs";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Services from "./Component/Services/services";
+import ContactUs from "./Component/Contact/ContactUs";
+import Blog from "./Component/Blog/Blog";
 
 function App() {
-  
-
   return (
     <BrowserRouter>
       <Navbar />
@@ -19,10 +17,11 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/service" element={<Services />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/blog" element={<Blog />} />
       </Routes>
       <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
