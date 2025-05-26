@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
+import { FaDebian } from "react-icons/fa6";
 
 const bgUrl =
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80";
@@ -22,8 +23,47 @@ const fadeIn = (direction = "up", delay = 0) => {
   return variants;
 };
 
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbwSkHvc4rIyOVyBbJ6nJDD96VgAY6Mipl0ssTX_2N8lJ87Y0uuKKyZVO_2rvfSr6ZaIwQ/exec"; // Replace with your deployed script URL
+
 const ContactUs = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [fields, setFields] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFields({ ...fields, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(fields),
+      });
+      setSubmitted(true);
+      setFields({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+      setTimeout(() => setSubmitted(false), 2500);
+    } catch (error) {
+      alert("Failed to send. Try again.");
+    }
+  };
 
   return (
     <motion.div
@@ -78,7 +118,7 @@ const ContactUs = () => {
                     <path d="M3 7l9 6 9-6" />
                   </svg>
                 </span>
-                <span>info@powertech.com</span>
+                <span>powertechindustries17@gmail.com</span>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">
                 <span className="bg-orange-500/80 p-2 rounded-full">
@@ -93,7 +133,7 @@ const ContactUs = () => {
                     <path d="M8 10h.01M16 10h.01M12 14h.01" />
                   </svg>
                 </span>
-                <span>123-456-7890</span>
+                <span>+91 8839658204</span>
               </div>
               <div className="flex items-center gap-2 sm:gap-3">
                 <span className="bg-orange-500/80 p-2 rounded-full">
@@ -108,7 +148,11 @@ const ContactUs = () => {
                     <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </span>
-                <span>456 Innovation Drive, Tech City, TX 75001</span>
+                <span>
+                  108-B, industrial area 01, 107-B, near shanti nagar, near
+                  mahakali foods and vippy industries, Amona, Dewas, Madhya
+                  Pradesh 455001
+                </span>
               </div>
             </div>
           </motion.div>
@@ -159,41 +203,52 @@ const ContactUs = () => {
             initial={{ y: 40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            onSubmit={(e) => {
-              e.preventDefault();
-              setSubmitted(true);
-              setTimeout(() => setSubmitted(false), 2500);
-            }}
+            onSubmit={handleSubmit}
           >
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-4">
               <input
                 type="text"
+                name="firstName"
                 placeholder="First Name"
                 className="flex-1 p-3 sm:p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white/80 shadow text-sm sm:text-base"
                 required
+                value={fields.firstName}
+                onChange={handleChange}
               />
               <input
                 type="text"
+                name="lastName"
                 placeholder="Last Name"
                 className="flex-1 p-3 sm:p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white/80 shadow text-sm sm:text-base"
                 required
+                value={fields.lastName}
+                onChange={handleChange}
               />
             </div>
             <input
               type="email"
+              name="email"
               placeholder="Email"
               className="w-full p-3 sm:p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white/80 shadow text-sm sm:text-base"
               required
+              value={fields.email}
+              onChange={handleChange}
             />
             <input
               type="tel"
+              name="phone"
               placeholder="Phone (optional)"
               className="w-full p-3 sm:p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white/80 shadow text-sm sm:text-base"
+              value={fields.phone}
+              onChange={handleChange}
             />
             <textarea
+              name="message"
               placeholder="Type your message..."
               className="w-full p-3 sm:p-4 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white/80 shadow resize-none h-24 sm:h-32 text-sm sm:text-base"
               required
+              value={fields.message}
+              onChange={handleChange}
             />
             <motion.button
               type="submit"
