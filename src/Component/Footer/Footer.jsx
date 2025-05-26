@@ -11,13 +11,30 @@ import {
 import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
 
 const socialLinks = [
-  { icon: <FaFacebookF />, href: "#", color: "hover:text-blue-500" },
-  { icon: <FaTwitter />, href: "#", color: "hover:text-blue-400" },
-  { icon: <FaLinkedinIn />, href: "#", color: "hover:text-blue-600" },
-  { icon: <FaPinterest />, href: "#", color: "hover:text-red-500" },
-  { icon: <FaYoutube />, href: "#", color: "hover:text-red-600" },
-  { icon: <FaSkype />, href: "#", color: "hover:text-blue-300" },
-  { icon: <FaRss />, href: "#", color: "hover:text-orange-500" },
+  {
+    icon: <FaFacebookF />,
+    href: "https://www.facebook.com/powertechindustriesdewas/",
+    target: "_blank",
+    color: "hover:text-blue-500",
+  },
+  {
+    icon: <FaTwitter />,
+    href: "#",
+    target: "_blank",
+    color: "hover:text-blue-400",
+  },
+  {
+    icon: <FaLinkedinIn />,
+    href: "#",
+    target: "_blank",
+    color: "hover:text-blue-600",
+  },
+  {
+    icon: <FaPinterest />,
+    href: "https://in.pinterest.com/powertechindustries17/",
+    target: "_blank",
+    color: "hover:text-red-500",
+  },
 ];
 
 const quickLinks = [
@@ -58,6 +75,7 @@ const Footer = () => {
               <a
                 key={i}
                 href={s.href}
+                target={s.target}
                 className={`p-2 rounded-full bg-gray-800 bg-opacity-60 text-gray-400 transition-all duration-300 transform hover:scale-110 ${s.color} shadow-md`}
                 aria-label="Social Link"
               >
@@ -97,21 +115,25 @@ const Footer = () => {
           <ul className="space-y-5 text-base">
             <li className="flex items-center gap-3 animate-fade-in-up">
               <MdLocationOn className="text-blue-400 text-2xl animate-bounce" />
-              <span>3015 Grand Ave, Coconut Grove, Merrick Way, FL 12345</span>
+              <span>
+                108-B, industrial area 01, 107-B, near shanti nagar, near
+                mahakali foods and vippy industries, Amona, Dewas, Madhya
+                Pradesh 455001
+              </span>
             </li>
             <li
               className="flex items-center gap-3 animate-fade-in-up"
               style={{ animationDelay: "0.1s" }}
             >
               <MdPhone className="text-blue-400 text-2xl animate-bounce" />
-              <span>+123-456-789</span>
+              <span>+91 8839658204</span>
             </li>
             <li
               className="flex items-center gap-3 animate-fade-in-up"
               style={{ animationDelay: "0.2s" }}
             >
               <MdEmail className="text-blue-400 text-2xl animate-bounce" />
-              <span>sales@example.com</span>
+              <span>powertechindustries17@gmail.com</span>
             </li>
           </ul>
         </div>
@@ -160,10 +182,6 @@ const Footer = () => {
         </div>
         <span className="block text-gray-500 text-sm mb-1 animate-fade-in-up">
           &copy; {new Date().getFullYear()}. All rights reserved.
-        </span>
-        <span className="block text-gray-500 text-sm animate-fade-in-up">
-          Designed by{" "}
-          <span className="text-blue-400 font-semibold">Inspiry Themes</span>
         </span>
       </div>
       {/* Animations */}
