@@ -18,7 +18,6 @@ function App() {
         <Route path="/service" element={<Services />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/blog" element={<Blog />} />
-        <Route path="/user" element={<h2>Hello World!</h2>} />
       </Routes>
       <Footer />
     </BrowserRouter>
