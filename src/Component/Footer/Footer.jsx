@@ -4,9 +4,6 @@ import {
   FaTwitter,
   FaLinkedinIn,
   FaPinterest,
-  FaYoutube,
-  FaSkype,
-  FaRss,
 } from "react-icons/fa";
 import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
 
@@ -38,21 +35,43 @@ const socialLinks = [
 ];
 
 const quickLinks = [
-  { name: "Home", href: "#" },
-  { name: "Blog", href: "#" },
-  { name: "List Layout", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "Blog", href: "/blog" },
+  { name: "Services", href: "/services" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(false);
 
-  const handleSubmit = (e) => {
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycbwSkHvc4rIyOVyBbJ6nJDD96VgAY6Mipl0ssTX_2N8lJ87Y0uuKKyZVO_2rvfSr6ZaIwQ/exec";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 2000);
-    setEmail("");
+    setError(false);
+    setSubmitted(false);
+    try {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email }),
+      });
+
+      setSubmitted(true);
+      setEmail("");
+
+      setTimeout(() => setSubmitted(false), 2500);
+    } catch (err) {
+      console.error("failded to send email:", err);
+      setError(true);
+      setTimeout(() => setError(false), 2500);
+    }
   };
 
   return (
@@ -186,21 +205,21 @@ const Footer = () => {
       </div>
       {/* Animations */}
       <style>{`
-                .animate-fade-in-down {
-                    animation: fadeInDown 0.8s cubic-bezier(.39,.575,.565,1) both;
-                }
-                .animate-fade-in-up {
-                    animation: fadeInUp 0.8s cubic-bezier(.39,.575,.565,1) both;
-                }
-                @keyframes fadeInDown {
-                    0% { opacity: 0; transform: translateY(-30px);}
-                    100% { opacity: 1; transform: translateY(0);}
-                }
-                @keyframes fadeInUp {
-                    0% { opacity: 0; transform: translateY(30px);}
-                    100% { opacity: 1; transform: translateY(0);}
-                }
-            `}</style>
+                  .animate-fade-in-down {
+                      animation: fadeInDown 0.8s cubic-bezier(.39,.575,.565,1) both;
+                  }
+                  .animate-fade-in-up {
+                      animation: fadeInUp 0.8s cubic-bezier(.39,.575,.565,1) both;
+                  }
+                  @keyframes fadeInDown {
+                      0% { opacity: 0; transform: translateY(-30px);}
+                      100% { opacity: 1; transform: translateY(0);}
+                  }
+                  @keyframes fadeInUp {
+                      0% { opacity: 0; transform: translateY(30px);}
+                      100% { opacity: 1; transform: translateY(0);}
+                  }
+              `}</style>
     </footer>
   );
 };

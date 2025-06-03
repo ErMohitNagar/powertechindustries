@@ -51,6 +51,30 @@ const Services = () => {
       color: "from-purple-500 to-purple-400",
       shadow: "shadow-purple-200",
     },
+    {
+      title: "Transformer Upgrades",
+      description:
+        "Upgrade your existing DP transformers to the latest technology for improved efficiency and reliability.",
+      img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      color: "from-yellow-500 to-yellow-400",
+      shadow: "shadow-yellow-200",
+    },
+    {
+      title: "Emergency Response",
+      description:
+        "Rapid emergency response services to address transformer failures and restore power quickly.",
+      img: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
+      color: "from-red-500 to-red-400",
+      shadow: "shadow-red-200",
+    },
+    {
+      title: "Consultation & Design",
+      description:
+        "Expert consultation and custom design services for new power distribution projects and transformer installations.",
+      img: "https://cdn-icons-png.flaticon.com/512/2921/2921222.png",
+      color: "from-indigo-500 to-indigo-400",
+      shadow: "shadow-indigo-200",
+    },
   ];
 
   const reasons = [

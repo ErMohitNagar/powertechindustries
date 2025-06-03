@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const slides = [
   {
@@ -75,7 +76,10 @@ const HeroSection = () => {
               {slide.description}
             </p>
             <div className="mt-6 sm:mt-10 flex flex-col xs:flex-row flex-wrap gap-4 xs:gap-6 animate-fade-in-up">
-              <button className="px-6 py-3 sm:px-10 sm:py-4 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-500 hover:from-cyan-500 hover:to-blue-600 text-white font-bold rounded-full shadow-2xl transition-transform transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 text-sm sm:text-base">
+              <Link
+                to="/contact"
+                className="px-6 py-3 sm:px-10 sm:py-4 bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-500 hover:from-cyan-500 hover:to-blue-600 text-white font-bold rounded-full shadow-2xl transition-transform transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-cyan-400/40 text-sm sm:text-base"
+              >
                 <span className="flex items-center gap-2">
                   <svg
                     className="w-5 h-5 animate-pulse"
@@ -92,8 +96,11 @@ const HeroSection = () => {
                   </svg>
                   Contact Us
                 </span>
-              </button>
-              <button className="px-6 py-3 sm:px-10 sm:py-4 bg-white/20 hover:bg-white/40 text-white font-bold rounded-full shadow-xl border border-white/60 transition-transform transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30 text-sm sm:text-base">
+              </Link>
+              <Link
+                to="/about"
+                className="px-6 py-3 sm:px-10 sm:py-4 bg-white/20 hover:bg-white/40 text-white font-bold rounded-full shadow-xl border border-white/60 transition-transform transform hover:scale-110 focus:outline-none focus:ring-4 focus:ring-white/30 text-sm sm:text-base"
+              >
                 <span className="flex items-center gap-2">
                   <svg
                     className="w-5 h-5"
@@ -110,7 +117,7 @@ const HeroSection = () => {
                   </svg>
                   Learn More
                 </span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

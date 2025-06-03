@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const services = [
   {
@@ -43,7 +44,8 @@ const Service = () => {
       </h2>
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((service, index) => (
-          <div
+          <Link
+            to="/contact"
             key={index}
             className={`
                             group relative p-8 rounded-3xl overflow-hidden
@@ -80,7 +82,7 @@ const Service = () => {
             <span
               className={`absolute -bottom-8 -right-8 w-32 h-32 rounded-full opacity-20 blur-2xl ${service.bgColor}`}
             ></span>
-          </div>
+          </Link>
         ))}
       </div>
       {/* Tailwind custom keyframes for fade-in */}
