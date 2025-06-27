@@ -3,36 +3,40 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    title: "Analytics",
-    description: "Gain insights with our advanced analytics tools.",
-    icon: "📊",
+    title: "Transformers Repair",
+    description: "Professional repair services to restore transformer efficiency and reliability.",
+    icon: "🛠️",
     bgColor: "bg-gradient-to-tr from-blue-100 via-blue-200 to-blue-50",
     textColor: "text-blue-700",
     shadow: "shadow-blue-200",
+    link: "/TransformersRepair",
   },
   {
-    title: "Design",
-    description: "Create stunning visuals with our design services.",
-    icon: "🎨",
+    title: "Transformers On Rent",
+    description: "Flexible rental options for high-performance transformers tailored to your needs.",
+    icon: "🔌",
     bgColor: "bg-gradient-to-tr from-green-100 via-green-200 to-green-50",
     textColor: "text-green-700",
     shadow: "shadow-green-200",
+    link: "/TransformersOnRent",
   },
   {
-    title: "Development",
-    description: "Build robust applications with our development team.",
-    icon: "💻",
+    title: "Servicing On Site",
+    description: "On-site servicing to ensure minimal downtime and continuous operation.",
+    icon: "🧰",
     bgColor: "bg-gradient-to-tr from-yellow-100 via-yellow-200 to-yellow-50",
     textColor: "text-yellow-700",
     shadow: "shadow-yellow-200",
+    link: "/ServicingOnSite",
   },
   {
-    title: "Support",
-    description: "Get 24/7 support for all your technical needs.",
-    icon: "🛠️",
+    title: "Construction Of Substations",
+    description: "Turnkey substation construction solutions with expert planning and execution.",
+    icon: "🏗️",
     bgColor: "bg-gradient-to-tr from-red-100 via-red-200 to-red-50",
     textColor: "text-red-700",
     shadow: "shadow-red-200",
+    link: "/SubstationConstruction",
   },
 ];
 
@@ -45,27 +49,26 @@ const Service = () => {
       <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
         {services.map((service, index) => (
           <Link
-            to="/contact"
+            to={service.link}
             key={index}
             className={`
-                            group relative p-8 rounded-3xl overflow-hidden
-                            ${service.bgColor} ${service.shadow}
-                            shadow-xl transition-all duration-500
-                            hover:scale-105 hover:shadow-2xl
-                            hover:-translate-y-2
-                            animate-fade-in-up
-                        `}
+              group relative p-8 rounded-3xl overflow-hidden
+              ${service.bgColor} ${service.shadow}
+              shadow-xl transition-all duration-500
+              hover:scale-105 hover:shadow-2xl
+              hover:-translate-y-2 animate-fade-in-up
+            `}
             style={{ animationDelay: `${index * 0.1 + 0.2}s` }}
           >
             <div
               className={`
-                                flex items-center justify-center mb-6
-                                h-20 w-20 rounded-full bg-white
-                                text-5xl shadow-lg mx-auto
-                                transition-transform duration-500
-                                group-hover:rotate-[12deg] group-hover:scale-110
-                                ${service.textColor}
-                            `}
+                flex items-center justify-center mb-6
+                h-20 w-20 rounded-full bg-white
+                text-5xl shadow-lg mx-auto
+                transition-transform duration-500
+                group-hover:rotate-[12deg] group-hover:scale-110
+                ${service.textColor}
+              `}
             >
               {service.icon}
             </div>
@@ -85,24 +88,24 @@ const Service = () => {
           </Link>
         ))}
       </div>
-      {/* Tailwind custom keyframes for fade-in */}
+
       <style>
         {`
-                .animate-fade-in-up {
-                    animation: fadeInUp 0.8s both;
-                }
-                .animate-fade-in-down {
-                    animation: fadeInDown 1s both;
-                }
-                @keyframes fadeInUp {
-                    from { opacity: 0; transform: translateY(40px);}
-                    to { opacity: 1; transform: translateY(0);}
-                }
-                @keyframes fadeInDown {
-                    from { opacity: 0; transform: translateY(-40px);}
-                    to { opacity: 1; transform: translateY(0);}
-                }
-                `}
+          .animate-fade-in-up {
+            animation: fadeInUp 0.8s both;
+          }
+          .animate-fade-in-down {
+            animation: fadeInDown 1s both;
+          }
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+        `}
       </style>
     </section>
   );

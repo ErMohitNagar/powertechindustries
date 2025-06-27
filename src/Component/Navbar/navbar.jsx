@@ -17,15 +17,17 @@ const Navbar = () => {
     <nav className="bg-gradient-to-r from-blue-900 via-black to-gray-900 text-white shadow-2xl p-4 md:p-6 relative overflow-visible">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo Section */}
-        <div className="flex items-center space-x-3 group cursor-pointer">
-          <div className="text-4xl animate-bounce transition-transform duration-500 group-hover:rotate-12">
-            <span className="text-yellow-400 drop-shadow-lg">⚡</span>
+        <Link to="/" className="flex items-center space-x-3 group">
+          <div className="flex items-center space-x-3 cursor-pointer">
+            <div className="text-4xl animate-bounce transition-transform duration-500 group-hover:rotate-12">
+              <span className="text-yellow-400 drop-shadow-lg">⚡</span>
+            </div>
+            <span className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent transition-all duration-500 group-hover:scale-105">
+              Power <span className="text-yellow-400">Tech</span>
+              <br className="hidden md:block" /> Industries
+            </span>
           </div>
-          <span className="text-2xl md:text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent transition-all duration-500 group-hover:scale-105">
-            Power <span className="text-yellow-400">Tech</span>
-            <br className="hidden md:block" /> Industries
-          </span>
-        </div>
+        </Link>
 
         {/* Toggle Button for Mobile */}
         <div className="md:hidden">
@@ -53,20 +55,17 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Navigation Links */}
+        {/* Desktop Nav Links */}
         <div className="hidden md:flex md:space-x-8 font-semibold text-lg">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className={`relative px-2 py-1 transition-all duration-300
-                                ${
-                                  location.pathname === link.to
-                                    ? "text-yellow-400"
-                                    : "hover:text-yellow-400"
-                                }
-                                after:content-[''] after:block after:h-0.5 after:bg-yellow-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left
-                            `}
+              className={`relative px-2 py-1 transition-all duration-300 ${
+                location.pathname === link.to
+                  ? "text-yellow-400"
+                  : "hover:text-yellow-400"
+              } after:content-[''] after:block after:h-0.5 after:bg-yellow-400 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-300 after:origin-left`}
             >
               {link.label}
             </Link>
@@ -74,20 +73,19 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Animated Dropdown Menu for Mobile */}
+      {/* Backdrop for mobile menu */}
       <div
-        className={`md:hidden fixed inset-0 z-50 bg-black bg-opacity-60 transition-opacity duration-300 ${
-          isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+        className={`md:hidden fixed inset-0 z-40 bg-black bg-opacity-60 transition-opacity duration-300 ${
+          isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setIsMenuOpen(false)}
       />
 
+      {/* Mobile Slide-in Menu */}
       <div
-        className={`md:hidden fixed top-0 right-0 w-3/4 max-w-xs h-full bg-gradient-to-b from-blue-900 via-black to-gray-900 shadow-2xl z-50 transform transition-transform duration-500 ease-in-out
-                    ${isMenuOpen ? "translate-x-0" : "translate-x-full"}
-                `}
+        className={`md:hidden fixed top-0 right-0 w-3/4 max-w-xs h-full bg-gradient-to-b from-blue-900 via-black to-gray-900 shadow-2xl z-50 transform transition-transform duration-500 ease-in-out ${
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="flex flex-col h-full py-10 px-6 space-y-8 animate-fade-in">
           <button
@@ -102,14 +100,11 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               onClick={() => setIsMenuOpen(false)}
-              className={`text-xl font-bold py-2 px-3 rounded-lg transition-all duration-300
-                                ${
-                                  location.pathname === link.to
-                                    ? "bg-yellow-400 text-black shadow-lg scale-105"
-                                    : "hover:bg-yellow-400 hover:text-black hover:scale-105"
-                                }
-                                delay-[${idx * 75}ms]
-                            `}
+              className={`text-xl font-bold py-2 px-3 rounded-lg transition-all duration-300 ${
+                location.pathname === link.to
+                  ? "bg-yellow-400 text-black shadow-lg scale-105"
+                  : "hover:bg-yellow-400 hover:text-black hover:scale-105"
+              }`}
               style={{ transitionDelay: `${idx * 75}ms` }}
             >
               {link.label}

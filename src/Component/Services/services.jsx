@@ -26,56 +26,57 @@ const scaleIn = {
 };
 
 const Services = () => {
-  const services = [
-    {
-      title: "DP Transformer Installation",
-      description:
-        "Expert installation for Distribution Pole (DP) transformers, seamlessly integrating with your power systems for reliable energy distribution.",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4t03WoCAu2EevWnyX8tNcZkqSGZ53jav1ZQ&s",
-      color: "from-blue-500 to-blue-400",
-      shadow: "shadow-blue-200",
-    },
-    {
-      title: "Maintenance & Repairs",
-      description:
-        "Comprehensive maintenance and repair services for DP transformers, ensuring optimal performance and minimal downtime.",
-      img: "https://img.freepik.com/premium-vector/efficiency-production-growth-line-icon-vector_227744-1159.jpg",
-      color: "from-green-500 to-green-400",
-      shadow: "shadow-green-200",
-    },
-    {
-      title: "Inspection & Testing",
-      description:
-        "Professional inspection and testing to ensure your DP transformers meet safety and performance standards.",
-      img: "https://www.digitalsignage.com/_images/installation-image.png",
-      color: "from-purple-500 to-purple-400",
-      shadow: "shadow-purple-200",
-    },
-    {
-      title: "Transformer Upgrades",
-      description:
-        "Upgrade your existing DP transformers to the latest technology for improved efficiency and reliability.",
-      img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-      color: "from-yellow-500 to-yellow-400",
-      shadow: "shadow-yellow-200",
-    },
-    {
-      title: "Emergency Response",
-      description:
-        "Rapid emergency response services to address transformer failures and restore power quickly.",
-      img: "https://cdn-icons-png.flaticon.com/512/1828/1828843.png",
-      color: "from-red-500 to-red-400",
-      shadow: "shadow-red-200",
-    },
-    {
-      title: "Consultation & Design",
-      description:
-        "Expert consultation and custom design services for new power distribution projects and transformer installations.",
-      img: "https://cdn-icons-png.flaticon.com/512/2921/2921222.png",
-      color: "from-indigo-500 to-indigo-400",
-      shadow: "shadow-indigo-200",
-    },
-  ];
+const services = [
+  {
+    title: "Power & Distribution Transformers",
+    description:
+      "Expert manufacturing and repair of power and distribution transformers for industrial and utility applications.",
+    img: "https://cdn-icons-png.flaticon.com/512/891/891466.png",
+    color: "from-blue-500 to-blue-400",
+    shadow: "shadow-blue-200",
+  },
+  {
+    title: "Step-Up & Step-Down Transformers",
+    description:
+      "Reliable transformer systems to step voltage up or down with precision and compliance to standards.",
+    img: "https://cdn-icons-png.flaticon.com/512/6072/6072934.png",
+    color: "from-green-500 to-green-400",
+    shadow: "shadow-green-200",
+  },
+  {
+    title: "Furnace Transformers",
+    description:
+      "Custom-built furnace transformers capable of withstanding high currents and extreme conditions.",
+    img: "https://cdn-icons-png.flaticon.com/512/1865/1865276.png",
+    color: "from-purple-500 to-purple-400",
+    shadow: "shadow-purple-200",
+  },
+  {
+    title: "Solar & Wind Transformers",
+    description:
+      "Transformers tailored for renewable energy systems such as solar farms and wind turbines.",
+    img: "https://cdn-icons-png.flaticon.com/512/2907/2907104.png",
+    color: "from-yellow-500 to-yellow-400",
+    shadow: "shadow-yellow-200",
+  },
+  {
+    title: "Panels & Control Solutions",
+    description:
+      "End-to-end panel design and integration for LT, HT, and custom industrial control systems.",
+    img: "https://cdn-icons-png.flaticon.com/512/8246/8246127.png",
+    color: "from-red-500 to-red-400",
+    shadow: "shadow-red-200",
+  },
+  {
+    title: "Line Material & Oil Filtration",
+    description:
+      "Supply of full 11kV & 33kV line material, and oil filtration services to enhance transformer life.",
+    img: "https://cdn-icons-png.flaticon.com/512/8753/8753489.png",
+    color: "from-indigo-500 to-indigo-400",
+    shadow: "shadow-indigo-200",
+  },
+];
+
 
   const reasons = [
     {
